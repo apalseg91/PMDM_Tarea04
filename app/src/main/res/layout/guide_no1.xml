@@ -15,14 +15,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnComenzar"/>
+        app:layout_constraintBottom_toTopOf="@id/btnNextStep"/>
 
     <Button
-        android:id="@+id/btnComenzar"
+        android:id="@+id/btnSkipGuide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Comenzar"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Saltar Guía"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:onClick="onSkipGuide"/>
+
+    <Button
+        android:id="@+id/btnNextStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:onClick="onNextGuideStep"
+        android:text="Siguiente"
+        app:layout_constraintBottom_toTopOf="@id/btnSkipGuide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtBienvenida" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

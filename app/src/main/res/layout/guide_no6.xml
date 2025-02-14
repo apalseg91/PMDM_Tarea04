@@ -1,29 +1,42 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/guide_no6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
     <TextView
-        android:id="@+id/guide_no6"
+        android:id="@+id/txtFin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¡Has completado la guía! Ahora puedes empezar a usar la aplicación."
+        android:text="¡Has completado la guía! Ahora puedes comenzar a usar la aplicación."
+        android:textColor="@android:color/black"
         android:textSize="24sp"
-        android:textColor="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnFinalizar"/>
-
-    <Button
-        android:id="@+id/btnFinalizar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="172dp"
-        android:text="Finalizar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSkipGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSkipGuide"
+        android:text="Saltar Guía"
+        app:layout_constraintTop_toBottomOf="@id/txtFin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnNextStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:alpha="0"
+        android:clickable="false"
+        android:onClick="onNextGuideStep"
+        android:text="Siguiente" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
