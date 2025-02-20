@@ -45,4 +45,12 @@
         </LinearLayout>
 
     </LinearLayout>
+    <ImageView
+        android:id="@+id/pulse_guide4"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="-70dp"
+        android:layout_marginBottom="-70dp"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/pulse" />
 </FrameLayout>

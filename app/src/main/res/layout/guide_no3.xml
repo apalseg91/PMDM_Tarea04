@@ -43,6 +43,12 @@
                 android:text="Saltar Guía"
                 android:layout_marginEnd="16dp"/>
         </LinearLayout>
-
     </LinearLayout>
+    <ImageView
+        android:id="@+id/pulse_guide3"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="-100dp"
+        android:layout_gravity="bottom|center"
+        android:src="@drawable/pulse" />
 </FrameLayout>
