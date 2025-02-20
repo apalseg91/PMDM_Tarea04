@@ -14,6 +14,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import dam.pmdm.spyrothedragon.databinding.ActivityMainBinding;
 
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController = null;
     private int currentGuideStep = 1;
     private static final int TOTAL_STEPS = 6;
+    private MenuItem itemInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.about_menu, menu);
+        itemInfo = menu.findItem(R.id.action_info);//guardo la ref de botón de info
         return true;
     }
 
@@ -83,13 +87,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void showGuideStep(int step) {
         LayoutInflater inflater = getLayoutInflater();
-        FrameLayout guideContainer = findViewById(R.id.guideContainer);
+        FrameLayout guideContainer = binding.guideContainer;
+        getSupportActionBar().hide();
+        disableButtons();
         guideContainer.removeAllViews();
+
+
 
         int layoutResId = 0;
         switch (step) {
             case 1:
                 layoutResId = R.layout.guide_no1;
+
                 break;
             case 2:
                 layoutResId = R.layout.guide_no2;
@@ -102,12 +111,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 5:
                 layoutResId = R.layout.guide_no5;
+                getSupportActionBar().show();
                 break;
             case 6:
                 layoutResId = R.layout.guide_no6;
                 break;
         }
-
         if (layoutResId != 0) {
             View guideView = inflater.inflate(layoutResId, guideContainer, false);
             guideContainer.addView(guideView);
@@ -133,6 +142,40 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout guideContainer = findViewById(R.id.guideContainer);
         guideContainer.removeAllViews();
         guideContainer.setVisibility(View.GONE);
+        enableActionBar();
+        enableButtons();
+    }
+
+    public void disableButtons(){
+        BottomNavigationView bottomBar = binding.navView;
+        MenuItem itemCharacters = bottomBar.getMenu().findItem(R.id.nav_characters);
+        MenuItem itemWorls = bottomBar.getMenu().findItem(R.id.nav_worlds);
+        MenuItem itemCollectibles = bottomBar.getMenu().findItem(R.id.nav_collectibles);
+        itemCharacters.setEnabled(false);
+        itemWorls.setEnabled(false);
+        itemCollectibles.setEnabled(false);
+        if (itemInfo != null){
+            itemInfo.setEnabled(false);
+        }
+    }
+    public void enableActionBar(){
+getSupportActionBar().show();
+        if (itemInfo != null){
+            itemInfo.setEnabled(true);
+        }
+    }
+
+    public void enableButtons(){
+        BottomNavigationView bottomBar = binding.navView;
+        MenuItem itemCharacters = bottomBar.getMenu().findItem(R.id.nav_characters);
+        MenuItem itemWorls = bottomBar.getMenu().findItem(R.id.nav_worlds);
+        MenuItem itemCollectibles = bottomBar.getMenu().findItem(R.id.nav_collectibles);
+        itemCharacters.setEnabled(true);
+        itemWorls.setEnabled(true);
+        itemCollectibles.setEnabled(true);
+        if (itemInfo != null){
+            itemInfo.setEnabled(true);
+        }
     }
 }
 
