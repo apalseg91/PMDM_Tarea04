@@ -3,6 +3,7 @@ package dam.pmdm.spyrothedragon;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -135,9 +136,15 @@ public class MainActivity extends AppCompatActivity {
             Button nextButton = guideView.findViewById(R.id.btnNextStep);
             Button skipButton = guideView.findViewById(R.id.btnSkipGuide);
 
-            nextButton.setOnClickListener(v -> onNextGuideStep());
-            skipButton.setOnClickListener(v -> onSkipGuide());
-        }
+            nextButton.setOnClickListener(v -> {
+                playSound(R.raw.aleteo);
+                onNextGuideStep();
+            });
+
+            skipButton.setOnClickListener(v -> {
+                playSound(R.raw.classique_gong);
+                onSkipGuide();
+            }); }
     }
 
     public void onNextGuideStep() {
@@ -199,6 +206,15 @@ getSupportActionBar().show();
         animatorSet.play(scaleX).with(scaleY).before(fadeIn);
         animatorSet.setDuration(500);
         animatorSet.start();
+    }
+    private void playSound(int soundResId) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, soundResId);
+        mediaPlayer.start();
+
+        // Liberar recursos después de la reproducción
+        mediaPlayer.setOnCompletionListener(mp -> {
+            mp.release();
+        });
     }
 }
 
