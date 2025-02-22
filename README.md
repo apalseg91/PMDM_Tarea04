@@ -49,5 +49,11 @@ El desarrollo de esta aplicación ha sido un proceso enriquecedor, permitiendo p
 Además, se han explorado conceptos como la persistencia de datos con *SharedPreferences* y el uso de librerías para mejorar la experiencia visual y funcional de la app. En futuras mejoras, se busca optimizar la estética de la guía interactiva y mejorar los efectos visuales.
 
 ## Capturas de pantalla
-*(Pendiente de añadir imágenes)*
+
+### Guía
+![Guía](screenshots/pantalla_principal.png)
+
+### Ester Eggs
+![EsterEggs](screenshots/lista_personajes.png)
+
 
