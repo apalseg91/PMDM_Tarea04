@@ -34,6 +34,13 @@
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
-
     </LinearLayout>
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/fireGif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:src="@drawable/fire_gif" />
+
 </androidx.cardview.widget.CardView>

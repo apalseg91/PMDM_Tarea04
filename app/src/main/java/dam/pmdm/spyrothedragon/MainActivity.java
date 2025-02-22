@@ -6,6 +6,7 @@ import static androidx.constraintlayout.widget.ConstraintSet.VISIBLE;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -60,7 +61,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        showGuideStep(currentGuideStep);
+        SharedPreferences preferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        boolean tutorialWatched = preferences.getBoolean("TutorialWatched", false);
+
+        if (tutorialWatched == false) {
+            showGuideStep(currentGuideStep);
+        }
+
+
     }
 
     private boolean selectedBottomMenu(@NonNull MenuItem menuItem) {
@@ -188,6 +196,14 @@ public class MainActivity extends AppCompatActivity {
         enableActionBar();
         enableButtons();
         binding.navHostFragment.setTransitionVisibility(VISIBLE);
+
+        SharedPreferences preferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("TutorialWatched", true);
+        editor.apply();
+
+        // Cerrar la actividad y no volver a mostrar el tutorial
+        finish();
 
     }
 
