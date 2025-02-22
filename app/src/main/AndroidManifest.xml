@@ -22,6 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.VideoEasterEggActivity"
+            android:theme="@style/Theme.SpyroTheDragon"/>
     </application>
 
 </manifest>

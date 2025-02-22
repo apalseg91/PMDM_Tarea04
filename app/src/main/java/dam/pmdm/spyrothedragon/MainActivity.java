@@ -3,7 +3,7 @@ package dam.pmdm.spyrothedragon;
 import static androidx.constraintlayout.widget.ConstraintSet.GONE;
 import static androidx.constraintlayout.widget.ConstraintSet.VISIBLE;
 
-import android.animation.Animator;
+
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.media.MediaPlayer;
@@ -17,12 +17,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.adapters.ViewGroupBindingAdapter;
+
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
