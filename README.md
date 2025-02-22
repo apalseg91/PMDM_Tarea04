@@ -59,5 +59,5 @@ Además, se han explorado conceptos como la persistencia de datos con *SharedPre
 ![Guía](screenshots/easter2.png)
 
 ### Video
-https://youtube.com/shorts/aiYtX_Jzw0Q
+video de la ejecución: https://youtube.com/shorts/ndHLmgNjKTk?feature=share
 
