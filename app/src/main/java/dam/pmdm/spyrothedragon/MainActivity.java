@@ -1,5 +1,8 @@
 package dam.pmdm.spyrothedragon;
 
+import static androidx.constraintlayout.widget.ConstraintSet.GONE;
+import static androidx.constraintlayout.widget.ConstraintSet.VISIBLE;
+
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -9,10 +12,13 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -92,60 +98,81 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
+
+
     private void showGuideStep(int step) {
         LayoutInflater inflater = getLayoutInflater();
         FrameLayout guideContainer = binding.guideContainer;
         getSupportActionBar().hide();
         disableButtons();
-        guideContainer.removeAllViews();
+        binding.navHostFragment.setTransitionVisibility(GONE);
 
+        // Crear animaciones
+        Animation fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+        Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        Animation slideIn = AnimationUtils.loadAnimation(this, R.anim.right_in);
+        Animation slideOut = AnimationUtils.loadAnimation(this, R.anim.left_out);
 
+        // Ocultar con animación de salida
+        guideContainer.startAnimation(fadeOut);
 
-        int layoutResId = 0;
-        switch (step) {
-            case 1:
-                layoutResId = R.layout.guide_no1;
-                break;
-            case 2:
-                layoutResId = R.layout.guide_no2;
-                animationRun();
-                break;
-            case 3:
-                layoutResId = R.layout.guide_no3;
-                break;
-            case 4:
-                layoutResId = R.layout.guide_no4;
-                break;
-            case 5:
-                layoutResId = R.layout.guide_no5;
-                getSupportActionBar().show();
-                break;
-            case 6:
-                layoutResId = R.layout.guide_no6;
-                break;
-        }
+        // Esperar a que termine la animación antes de cambiar la vista
+        guideContainer.postDelayed(() -> {
+            guideContainer.removeAllViews();
 
-        if (layoutResId != 0) {
-            View guideView = inflater.inflate(layoutResId, guideContainer, false);
-            guideContainer.addView(guideView);
-            guideContainer.setVisibility(View.VISIBLE);
+            int layoutResId = 0;
+            switch (step) {
+                case 1:
+                    layoutResId = R.layout.guide_no1;
+                    break;
+                case 2:
+                    layoutResId = R.layout.guide_no2;
+                    break;
+                case 3:
+                    layoutResId = R.layout.guide_no3;
+                    break;
+                case 4:
+                    layoutResId = R.layout.guide_no4;
+                    break;
+                case 5:
+                    layoutResId = R.layout.guide_no5;
+                    getSupportActionBar().show();
+                    break;
+                case 6:
+                    layoutResId = R.layout.guide_no6;
+                    break;
+            }
 
-        if (step == 2 ||step == 3 ||step == 4 ||step == 5) {
-            animationRun();
-        }
-            Button nextButton = guideView.findViewById(R.id.btnNextStep);
-            Button skipButton = guideView.findViewById(R.id.btnSkipGuide);
+            if (layoutResId != 0) {
+                View guideView = inflater.inflate(layoutResId, guideContainer, false);
+                guideContainer.addView(guideView);
+                guideContainer.setVisibility(View.VISIBLE);
 
-            nextButton.setOnClickListener(v -> {
-                playSound(R.raw.aleteo);
-                onNextGuideStep();
-            });
+                // Aplicar animación de entrada
+                guideContainer.startAnimation(fadeIn);
 
-            skipButton.setOnClickListener(v -> {
-                playSound(R.raw.classique_gong);
-                onSkipGuide();
-            }); }
+                if (step == 2||step == 3||step == 4||step == 5) {
+                    animationRun();
+                }
+
+                Button nextButton = guideView.findViewById(R.id.btnNextStep);
+                Button skipButton = guideView.findViewById(R.id.btnSkipGuide);
+
+                nextButton.setOnClickListener(v -> {
+                    playSound(R.raw.aleteo);
+                    guideContainer.startAnimation(slideOut);
+                    onNextGuideStep();
+                });
+
+                skipButton.setOnClickListener(v -> {
+                    playSound(R.raw.classique_gong);
+                    guideContainer.startAnimation(slideOut);
+                    onSkipGuide();
+                });
+            }
+        }, fadeOut.getDuration()); // Espera a que termine fadeOut antes de cambiar la vista
     }
+
 
     public void onNextGuideStep() {
         if (currentGuideStep < TOTAL_STEPS) {
@@ -161,6 +188,8 @@ public class MainActivity extends AppCompatActivity {
         guideContainer.setVisibility(View.GONE);
         enableActionBar();
         enableButtons();
+        binding.navHostFragment.setTransitionVisibility(VISIBLE);
+
     }
 
     public void disableButtons(){
