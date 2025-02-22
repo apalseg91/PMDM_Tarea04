@@ -6,4 +6,13 @@
     <string name="title_about">Acerca de</string>
     <string name="text_about">Aplicación desarrollada por \n <b>Alejandro Palomeque Segura.</b></string>
     <string name="accept">Aceptar</string>
+    <string name="guide_1_txt">¡Bienvenido a la guía interactiva de Spyro!</string>
+    <string name="skip">Saltar Guía</string>
+    <string name="next">Siguiente</string>
+    <string name="guide_2_txt">Aquí podrás explorar a todos los personajes del mundo de Spyro.</string>
+    <string name="guide_3_txt">Aquí podrás explorar los distintos mundos disponibles en Spyro.</string>
+    <string name="guide_4_txt">Aquí podrás ver todos los coleccionables disponibles en Spyro.</string>
+    <string name="guide_5_txt">Aquí puedes encontrar información adicional sobre la aplicación.</string>
+    <string name="guide_6_txt">¡Has completado la guía! Ahora puedes comenzar a usar la aplicación.</string>
+    <string name="the_end">Finalizar guía</string>
 </resources>

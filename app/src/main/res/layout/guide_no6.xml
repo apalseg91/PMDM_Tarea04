@@ -9,7 +9,7 @@
         android:id="@+id/txtFin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¡Has completado la guía! Ahora puedes comenzar a usar la aplicación."
+        android:text="@string/guide_6_txt"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:onClick="onSkipGuide"
         android:background="@drawable/button_personalized"
-        android:text="Finalizar guía"
+        android:text="@string/the_end"
         app:layout_constraintTop_toBottomOf="@id/txtFin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
         android:clickable="false"
         android:onClick="onNextGuideStep"
         android:background="@drawable/button_personalized"
-        android:text="Siguiente" />
+        android:text="@string/next" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

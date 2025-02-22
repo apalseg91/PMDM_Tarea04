@@ -19,7 +19,7 @@
             android:id="@+id/txtInfoIcono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aquí puedes encontrar información adicional sobre la aplicación."
+            android:text="@string/guide_5_txt"
             android:textSize="18sp"
             android:textColor="@android:color/black"/>
         <LinearLayout
@@ -33,7 +33,7 @@
                 android:layout_marginStart="16dp"
                 android:onClick="onNextGuideStep"
                 android:background="@drawable/button_personalized"
-                android:text="Siguiente"
+                android:text="@string/next"
                 android:layout_marginEnd="100dp"/>
 
             <Button
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="onSkipGuide"
                 android:background="@drawable/button_personalized"
-                android:text="Saltar Guía"
+                android:text="@string/skip"
                 android:layout_marginEnd="16dp"/>
         </LinearLayout>
     </LinearLayout>
