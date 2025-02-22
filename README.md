@@ -51,9 +51,10 @@ Además, se han explorado conceptos como la persistencia de datos con *SharedPre
 ## Capturas de pantalla
 
 ### Guía
-![Guía](screenshots/pantalla_principal.png)
+![Guía](screenshots/guia1.png)
+![Guía](screenshots/guia6.png)
 
 ### Ester Eggs
-![EsterEggs](screenshots/lista_personajes.png)
-
+![EsterEggs](easter1png)
+![Guía](screenshots/easter2.png)
 
