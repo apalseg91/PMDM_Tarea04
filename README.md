@@ -58,3 +58,6 @@ Además, se han explorado conceptos como la persistencia de datos con *SharedPre
 ![EsterEggs](screenshots/easter1.png)
 ![Guía](screenshots/easter2.png)
 
+### Video
+https://youtube.com/shorts/aiYtX_Jzw0Q
+
