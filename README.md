@@ -55,6 +55,6 @@ Además, se han explorado conceptos como la persistencia de datos con *SharedPre
 ![Guía](screenshots/guia6.png)
 
 ### Ester Eggs
-![EsterEggs](easter1png)
+![EsterEggs](screenshots/easter1.png)
 ![Guía](screenshots/easter2.png)
 
