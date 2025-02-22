@@ -202,9 +202,6 @@ public class MainActivity extends AppCompatActivity {
         editor.putBoolean("TutorialWatched", true);
         editor.apply();
 
-        // Cerrar la actividad y no volver a mostrar el tutorial
-        finish();
-
     }
 
     public void disableButtons(){
