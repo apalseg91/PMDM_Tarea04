@@ -8,4 +8,6 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="pulse_purple">#77703092</color>
+
+    <color name="my_purple">#703092</color>
 </resources>

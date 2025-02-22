@@ -32,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:background="@drawable/button_personalized"
             android:onClick="onNextGuideStep"
             android:text="Siguiente"
             android:layout_marginEnd="100dp"/>
@@ -41,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onSkipGuide"
+            android:background="@drawable/button_personalized"
             android:text="Saltar Guía"
             android:layout_marginEnd="16dp"/>
 </LinearLayout>

@@ -1,5 +1,8 @@
 package dam.pmdm.spyrothedragon;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -7,9 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.adapters.ViewGroupBindingAdapter;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
@@ -98,10 +104,10 @@ public class MainActivity extends AppCompatActivity {
         switch (step) {
             case 1:
                 layoutResId = R.layout.guide_no1;
-
                 break;
             case 2:
                 layoutResId = R.layout.guide_no2;
+                animationRun();
                 break;
             case 3:
                 layoutResId = R.layout.guide_no3;
@@ -117,11 +123,15 @@ public class MainActivity extends AppCompatActivity {
                 layoutResId = R.layout.guide_no6;
                 break;
         }
+
         if (layoutResId != 0) {
             View guideView = inflater.inflate(layoutResId, guideContainer, false);
             guideContainer.addView(guideView);
             guideContainer.setVisibility(View.VISIBLE);
 
+        if (step == 2 ||step == 3 ||step == 4 ||step == 5) {
+            animationRun();
+        }
             Button nextButton = guideView.findViewById(R.id.btnNextStep);
             Button skipButton = guideView.findViewById(R.id.btnSkipGuide);
 
@@ -176,6 +186,19 @@ getSupportActionBar().show();
         if (itemInfo != null){
             itemInfo.setEnabled(true);
         }
+    }
+
+    public void animationRun(){
+        ImageView pulse = binding.guideContainer.findViewById(R.id.pulse_guide2);
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(pulse, "scaleX", 1f, 0.5f);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(pulse, "scaleY", 1f, 0.5f);
+        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(pulse, "alpha", 1f, 0.1f);
+        scaleX.setRepeatCount(4);
+        scaleY.setRepeatCount(4);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.play(scaleX).with(scaleY).before(fadeIn);
+        animatorSet.setDuration(500);
+        animatorSet.start();
     }
 }
 
